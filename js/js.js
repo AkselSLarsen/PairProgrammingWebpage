@@ -8,15 +8,14 @@ Vue.createApp({
     },
     methods: {
         ShowallRecords() {
-            this.records = this.GetFromUrl(GetAllMusicRecordsURL);
-            console.log(this.records)
+            this.GetFromUrl(GetAllMusicRecordsURL).then(result => this.records = result);
         },
         async GetFromUrl(url) {
             try {
-                const response = await axios.get(url)
-                return await response.data
+                const response = await axios.get(url);
+                return await response.data;
             } catch (ex) {
-                alert(ex.message)
+                alert(ex.message);
             }
         }
     }
