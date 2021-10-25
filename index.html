@@ -12,17 +12,19 @@
 
 <body>
     <div id="app">
-        <input type="button" value="Show all">
+        <input type="button" value="Show all" v-on:click="Showall">
 
         <ul>
-            <li v-for="record in records"></li>
+            <li v-for="record in records">
+                {{record.title}}, {{record.artist}}, {{record.duration}}, {{record.publicationYear}}, {{record.genre}}
+            </li>
         </ul>
 
 
 
 
     </div>
-    <script src="js/index.js"></script>
+    <script src="js/js.js"></script>
 </body>
 
 </html>
