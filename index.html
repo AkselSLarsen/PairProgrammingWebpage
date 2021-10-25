@@ -12,9 +12,9 @@
 
 <body>
     <div id="app">
-        <input type="button" value="Show all" v-on:click="Showall">
+        <input type="button" value="Show all" v-on:click="ShowallRecords">
 
-        <ul>
+        <ul v-if="records.length">
             <li v-for="record in records">
                 {{record.title}}, {{record.artist}}, {{record.duration}}, {{record.publicationYear}}, {{record.genre}}
             </li>

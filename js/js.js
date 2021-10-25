@@ -7,11 +7,17 @@ Vue.createApp({
         }
     },
     methods: {
-        Showall() {
-            records = this.GetMusicRecords();
+        ShowallRecords() {
+            this.records = this.GetFromUrl(GetAllMusicRecordsURL);
+            console.log(this.records)
         },
-        async GetMusicRecords() {
-            return await axios.get(GetAllMusicRecordsURL).data;
+        async GetFromUrl(url) {
+            try {
+                const response = await axios.get(url)
+                return await response.data
+            } catch (ex) {
+                alert(ex.message)
+            }
         }
     }
 }).mount("#app")
