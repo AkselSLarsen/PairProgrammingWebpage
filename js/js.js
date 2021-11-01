@@ -7,6 +7,9 @@ Vue.createApp({
             titleRecords: [],
             artistRecords: [],
             genreRecords: [],
+            titleToSearchFor: "",
+            artistToSearchFor: "",
+            genreToSearchFor: "",
         }
     },
     methods: {
@@ -14,13 +17,13 @@ Vue.createApp({
             this.GetFromUrl(GetAllMusicRecordsURL).then(result => this.records = result);
         },
         ShowRecordsWithTitleLike() {
-            this.GetFromUrl(GetAllMusicRecordsURL + "?title=").then(result => this.records = result);
+            this.GetFromUrl(GetAllMusicRecordsURL + "/bytitle?title="+this.titleToSearchFor).then(result => this.titleRecords = result);
         },
         ShowRecordsWithArtistLike() {
-            this.GetFromUrl(GetAllMusicRecordsURL).then(result => this.records = result);
+            this.GetFromUrl(GetAllMusicRecordsURL + "/byartist?artist="+this.artistToSearchFor).then(result => this.artistRecords = result);
         },
         ShowRecordsWithGenreLike() {
-            this.GetFromUrl(GetAllMusicRecordsURL).then(result => this.records = result);
+            this.GetFromUrl(GetAllMusicRecordsURL + "/bygenre?genre=" + this.genreToSearchFor).then(result => this.genreRecords = result);
         },
         async GetFromUrl(url) {
             try {
