@@ -6,19 +6,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body>
     <div id="app">
-        <input type="button" id="showallbutton" value="Show all" v-on:click="ShowallRecords">
+        <div class="row">
+            <div class="col-xl-3">
+                <input type="button" id="showallbutton" value="Show all" v-on:click="ShowallRecords">
 
-        <ul id="allrecords" v-if="records.length">
-            <li name="r" v-for="record in records">
-                {{record.title}}, {{record.artist}}, {{record.duration}}, {{record.publicationYear}}, {{record.genre}}
-            </li>
-        </ul>
+                <ul id="allrecords" v-if="records.length">
+                    <li name="r" v-for="record in records">
+                        {{record.title}}, {{record.artist}}, {{record.duration}}, {{record.publicationYear}}, {{record.genre}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xl-3">
+                <input type="button" id="showbytitlebutton" value="Show by title" v-on:click="ShowRecordsWithTitleLike">
+                <input type="text" id="titleinput" placeholder="title" v-model="titleToSearchFor">
+
+                <ul id="titlerecords" v-if="titleRecords.length">
+                    <li name="tr" v-for="record in titleRecords">
+                        {{record.title}}, {{record.artist}}, {{record.duration}}, {{record.publicationYear}}, {{record.genre}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xl-3">
+                <input type="button" id="showbyartistbutton" value="Show by artist" v-on:click="ShowRecordsWithArtistLike">
+                <input type="text" id="artistinput" placeholder="artist" v-model="artistToSearchFor">
+
+                <ul id="artistrecords" v-if="artistRecords.length">
+                    <li name="ar" v-for="record in artistRecords">
+                        {{record.title}}, {{record.artist}}, {{record.duration}}, {{record.publicationYear}}, {{record.genre}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xl-3">
+                <input type="button" id="showbygenrebutton" value="Show by genre" v-on:click="ShowRecordsWithGenreLike">
+                <input type="text" id="genreinput" placeholder="genre" v-model="genreToSearchFor">
+
+                <ul id="genrerecords" v-if="genreRecords.length">
+                    <li name="gr" v-for="record in genreRecords">
+                        {{record.title}}, {{record.artist}}, {{record.duration}}, {{record.publicationYear}}, {{record.genre}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        
 
 
 

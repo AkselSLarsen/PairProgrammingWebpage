@@ -1,13 +1,25 @@
-const GetAllMusicRecordsURL = "https://localhost:44326/musicrecords"
+const GetAllMusicRecordsURL = "https://restpairprogramming.azurewebsites.net/musicrecords"
 
 Vue.createApp({
     data() {
         return {
             records: [],
+            titleRecords: [],
+            artistRecords: [],
+            genreRecords: [],
         }
     },
     methods: {
         ShowallRecords() {
+            this.GetFromUrl(GetAllMusicRecordsURL).then(result => this.records = result);
+        },
+        ShowRecordsWithTitleLike() {
+            this.GetFromUrl(GetAllMusicRecordsURL + "?title=").then(result => this.records = result);
+        },
+        ShowRecordsWithArtistLike() {
+            this.GetFromUrl(GetAllMusicRecordsURL).then(result => this.records = result);
+        },
+        ShowRecordsWithGenreLike() {
             this.GetFromUrl(GetAllMusicRecordsURL).then(result => this.records = result);
         },
         async GetFromUrl(url) {
