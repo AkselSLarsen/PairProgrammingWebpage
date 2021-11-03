@@ -40,7 +40,7 @@ Vue.createApp({
             response = await axios.post(GetAllMusicRecordsURL, this.addData) ;
         },
         async DeleteMusicRecord() {
-            response = await axios.delete(GetAllMusicRecordsURL, this.deleteData) ;
+            response = await axios.delete(GetAllMusicRecordsURL, {data: this.deleteData}) ;
         },
     }
 }).mount("#app")
