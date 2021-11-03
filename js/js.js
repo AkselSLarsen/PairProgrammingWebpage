@@ -10,6 +10,8 @@ Vue.createApp({
             titleToSearchFor: "",
             artistToSearchFor: "",
             genreToSearchFor: "",
+            addData: {title: "", artist: "", duration: 0, publicationYear: 0, genre: ""},
+
         }
     },
     methods: {
@@ -32,6 +34,10 @@ Vue.createApp({
             } catch (ex) {
                 alert(ex.message);
             }
+        },
+        async AddMusicRecord() {
+            console.log(this.addData)
+            response = await axios.post(GetAllMusicRecordsURL, this.addData) ;
         }
     }
 }).mount("#app")

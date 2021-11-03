@@ -54,6 +54,25 @@
                 </ul>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xl-3">
+                <input type="text" id="titleaddinput" placeholder="title" v-model="addData.title">
+                <input type="text" id="artistaddinput" placeholder="artist" v-model="addData.artist">
+                <input type="number" id="durationaddinput" placeholder="90" v-model="addData.duration">
+                <input type="number" id="yearaddinput" placeholder="2000" v-model="addData.publicationYear">
+                <input type="text" id="genreaddinput" placeholder="genre" v-model="addData.genre">
+                <input type="button" id="addbutton" value="Add Record" v-on:click="AddMusicRecord">
+            </div>
+            <div class="col-xl-3">
+                
+            </div>
+            <div class="col-xl-3">
+                
+            </div>
+            <div class="col-xl-3">
+                
+            </div>
+        </div>
 
         
 
