@@ -11,6 +11,7 @@ Vue.createApp({
             artistToSearchFor: "",
             genreToSearchFor: "",
             addData: {title: "", artist: "", duration: 0, publicationYear: 0, genre: ""},
+            deleteData: {title: "", artist: "", duration: 0, publicationYear: 0, genre: ""},
 
         }
     },
@@ -36,8 +37,10 @@ Vue.createApp({
             }
         },
         async AddMusicRecord() {
-            console.log(this.addData)
             response = await axios.post(GetAllMusicRecordsURL, this.addData) ;
-        }
+        },
+        async DeleteMusicRecord() {
+            response = await axios.delete(GetAllMusicRecordsURL, this.deleteData) ;
+        },
     }
 }).mount("#app")

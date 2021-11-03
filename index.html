@@ -64,7 +64,12 @@
                 <input type="button" id="addbutton" value="Add Record" v-on:click="AddMusicRecord">
             </div>
             <div class="col-xl-3">
-                
+                <input type="text" id="titledeleteinput" placeholder="title" v-model="deleteData.title">
+                <input type="text" id="artistdeleteinput" placeholder="artist" v-model="deleteData.artist">
+                <input type="number" id="durationdeleteinput" placeholder="90" v-model="deleteData.duration">
+                <input type="number" id="yeardeleteinput" placeholder="2000" v-model="deleteData.publicationYear">
+                <input type="text" id="genredeleteinput" placeholder="genre" v-model="deleteData.genre">
+                <input type="button" id="deletebutton" value="Delete Record" v-on:click="DeleteMusicRecord">
             </div>
             <div class="col-xl-3">
                 
